@@ -9,64 +9,29 @@ import DisplayBalances from './components/DisplayBalances';
 import EntryLines from './components/EntryLines';
 import { useEffect, useState } from 'react';
 import ModelEdit from "./components/ModelEdit";
+import { addEntryRedux, removeEntryRedux } from './actions/entries.action';
+import { useSelector } from 'react-redux';
 function App() {
-  const [entries, setEntries] = useState(initialEntries);
-  const [description, setDescription] = useState('');
-  const [value, setValue] = useState(0);
-  const [isExpense, setIsExpense] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [entryId, setEntryID] = useState();
+  // const [entries, // setEntries] = useState(initialEntries);
+  // const [description, setDescription] = useState('');
+  // const [value, setValue] = useState(0);
+  // const [isExpense, setIsExpense] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const [entryId, setEntryID] = useState();
   const [balance, setBalance] = useState(0);
   const [expenses, setExponses] = useState(0);
   const [income, setIncome] = useState(0);
-  function deleteEntry(id) {
-    var remainingEntries = entries.filter((entry) => entry.id !== id)
-    setEntries(remainingEntries);
-    console.log(id);
-  }
-  function addEntry() {
-    var result = entries.concat({
-      id: entries.length + 1,
-      description,
-      value, isExpense
-    });
-    setEntries(result);
-  }
-  function editEntry(id) {
+  const [entry, setEntry] = useState();
 
-    var entry = entries.find((entry) => entry.id === id);
-    setEntryID(entry.id);
-    setValue(entry.value);
-    setIsExpense(entry.isExpense);
-    setDescription(entry.description);
+  const entries = useSelector((state) => state.entries)
+  const { isOpen, id } = useSelector((state) => state.models);
 
-    setIsOpen(true);
 
-    console.log(`ID:${id} ${entry}`);
 
-  }
-  function resetData() {
-    setDescription('');
-    setValue(0);
-    setIsExpense(false)
-  }
   useEffect(() => {
-
-    if (!isOpen && entryId) {
-      var newEntries = entries.map((entry) => {
-        if (entry.id === entryId) {
-          return {
-            ...entry, description, id: entryId, value, isExpense
-          }
-        }
-        return entry;
-      });
-      console.log(newEntries);
-      setEntries(newEntries);
-      resetData();
-    }
-
-  }, [isOpen]);
+    const newentry = entries.find((entry) => id == entry.id);
+    setEntry(newentry);
+  }, [isOpen, id]);
 
   useEffect(() => {
     var totalIncome = 0;
@@ -97,30 +62,13 @@ function App() {
 
       <EntryLines
         entries={entries}
-        deleteEntry={deleteEntry}
-        editEntry={editEntry} />
+      />
 
       <MainHeader title='Add New Transaction' type='h3' />
 
-      <NewEntryForm
-        addEntry={addEntry}
-        description={description}
-        value={value}
-        isExpense={isExpense}
-        setDescription={setDescription}
-        setIsExpense={setIsExpense}
-        setValue={setValue}
-        resetData={resetData} />
+      <NewEntryForm />
 
-      <ModelEdit isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        description={description}
-        value={value}
-        isExpense={isExpense}
-        setDescription={setDescription}
-        setIsExpense={setIsExpense}
-        setValue={setValue} />
-
+      <ModelEdit isOpen={isOpen} {...entry} />
     </Container>
   );
 }

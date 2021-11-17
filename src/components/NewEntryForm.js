@@ -1,12 +1,15 @@
 
-import React from "react";
+import React, { useDebugValue, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Form } from 'semantic-ui-react'
+import { addEntryRedux } from "../actions/entries.action";
 import ButtonsaveOrCancel from "./ButtonsaveOrCancel";
 import NewForm from './NewForm';
 
-function NewEntryForm({ addEntry, description, setDescription, value, setValue, isExpense, setIsExpense, resetData }) {
+import useEntryDetails from '../hooks/useEntryDetails';
+function NewEntryForm({ resetData }) {
 
-
+    const { description, setDescription, value, setValue, isExpense, setIsExpense, addEntry } = useEntryDetails();
     return (
         <Form unstackable>
             <NewForm
@@ -18,7 +21,7 @@ function NewEntryForm({ addEntry, description, setDescription, value, setValue, 
                 setValue={setValue} />
             <ButtonsaveOrCancel
                 addEntry={addEntry}
-                resetData={resetData} />
+            />
         </Form>
 
     );

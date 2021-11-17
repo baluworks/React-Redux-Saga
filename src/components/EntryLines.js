@@ -9,7 +9,7 @@ function EntryLines({ entries, deleteEntry, editEntry }) {
             <Container>
                 {
                     entries.map(entry =>
-                        <EntryLine key={entry.id} {...entry} deleteEntry={deleteEntry} editEntry={editEntry} />
+                        <EntryLine key={entry.id} {...entry} editEntry={editEntry} />
                     )
                 }
             </Container>

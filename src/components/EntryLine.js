@@ -1,10 +1,11 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Container, Grid, Icon, Segment } from "semantic-ui-react";
+import { removeEntryRedux } from '../actions/entries.action';
+import { openEditModel } from '../actions/models.action';
+function EntryLine({ id, description, value, isExpense = false, editEntry }) {
 
-
-function EntryLine({ id, description, value, isExpense = false, deleteEntry, editEntry }) {
-
-
+    const actionDispatcher = useDispatch();
     return (
         <Container>
             <Segment color={isExpense ? 'red' : 'green'} >
@@ -13,9 +14,11 @@ function EntryLine({ id, description, value, isExpense = false, deleteEntry, edi
                         <Grid.Column width={10} textAlign='left'>{description}</Grid.Column>
                         <Grid.Column width={3} textAlign='right'>${value}</Grid.Column>
                         <Grid.Column width={3} textAlign='right'>
-                            <Icon name='edit' onClick={() => editEntry(id)}></Icon>
+                            {/* <Icon name='edit' onClick={() => editEntry(id)}></Icon> */}
+                            <Icon name='edit' onClick={() => actionDispatcher(openEditModel(id))}></Icon>
                             <Icon name='trash' onClick={() => {
-                                deleteEntry(id)
+                                actionDispatcher(removeEntryRedux(id));
+                                //deleteEntry(id)
                             }} ></Icon>
                         </Grid.Column>
                     </Grid.Row>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from 'semantic-ui-react'
-function ButtonsaveOrCancel({ addEntry, resetData }) {
+function ButtonsaveOrCancel({ addEntry }) {
 
     return (
         <Button.Group style={{ marginTop: 20 }}>
@@ -8,7 +8,6 @@ function ButtonsaveOrCancel({ addEntry, resetData }) {
             <Button.Or />
             <Button color='blue' onClick={() => {
                 addEntry();
-                resetData();
             }}>Ok</Button>
         </Button.Group>
     );
