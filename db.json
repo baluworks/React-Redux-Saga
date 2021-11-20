@@ -1,0 +1,28 @@
+{
+  "entries": [
+    {
+      "id": 2,
+      "description": "",
+      "value": 100,
+      "isExpense": true
+    },
+    {
+      "id": 3,
+      "description": "",
+      "value": 150,
+      "isExpense": true
+    },
+    {
+      "id": 5,
+      "description": "",
+      "value": 500,
+      "isExpense": false
+    },
+    {
+      "id": 113,
+      "description": "income",
+      "value": 1650,
+      "isExpense": false
+    }
+  ]
+}

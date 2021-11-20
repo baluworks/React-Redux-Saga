@@ -13,7 +13,7 @@ const entriesReducer = (state = initialEntries, action) => {
             return newEntries;
 
         case 'UPDATE_ENTRY':
-            newEntries = state.map((entry) => (entry.id == action.payload.id)
+            newEntries = state.map((entry) => (entry.id === action.payload.id)
                 ? { ...entry, ...action.payload.entry }
                 : { ...entry });
             return newEntries;
