@@ -5,7 +5,8 @@ import { removeEntryRedux } from '../actions/entries.action';
 import { openEditModel } from '../actions/models.action';
 function EntryLine({ id, description, value, isExpense = false, editEntry }) {
 
-    const actionDispatcher = useDispatch();
+    const dispatcher = useDispatch();
+
     return (
         <Container>
             <Segment color={isExpense ? 'red' : 'green'} >
@@ -15,9 +16,9 @@ function EntryLine({ id, description, value, isExpense = false, editEntry }) {
                         <Grid.Column width={3} textAlign='right'>${value}</Grid.Column>
                         <Grid.Column width={3} textAlign='right'>
                             {/* <Icon name='edit' onClick={() => editEntry(id)}></Icon> */}
-                            <Icon name='edit' onClick={() => actionDispatcher(openEditModel(id))}></Icon>
+                            <Icon name='edit' onClick={() => dispatcher(openEditModel(id))}></Icon>
                             <Icon name='trash' onClick={() => {
-                                actionDispatcher(removeEntryRedux(id));
+                                dispatcher(removeEntryRedux(id));
                                 //deleteEntry(id)
                             }} ></Icon>
                         </Grid.Column>

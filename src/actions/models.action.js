@@ -1,8 +1,10 @@
+import { modelActionTypes } from "../constants/model.type";
+
 export const openEditModel = (id) => {
-    return { type: 'OPEN_EDIT_MODEL', payload: { id } }
+    return { type: modelActionTypes.OPEN_EDIT_MODEL, payload: { id } }
 }
 
 export const closeEditModel = () => {
-    return { type: 'CLOSE_EDIT_MODEL' };
+    return { type: modelActionTypes.CLOSE_EDIT_MODEL };
 
 }

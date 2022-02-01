@@ -2,26 +2,85 @@
   "entries": [
     {
       "id": 2,
-      "description": "",
+      "description": "one"
+    },
+    {
+      "id": 3,
+      "description": "Two"
+    },
+    {
+      "id": 5,
+      "description": "Three"
+    },
+    {
+      "id": 113,
+      "description": "Four"
+    },
+    {
+      "id": "7b04b310-7ccd-4e53-bdf6-f43c0b27c7c0",
+      "description": "five"
+    },
+    {
+      "id": "106aa998-f0be-4533-9efb-454a5b38094e",
+      "description": "six"
+    },
+    {
+      "id": "9df6f441-34cf-412a-a639-9009e9949f2d",
+      "description": "seven"
+    },
+    {
+      "id": "37da48cd-e3a0-4a54-a3b8-0d3397a041df",
+      "description": "eights"
+    },
+    {
+      "id": "ecc6ddd5-4fd5-4989-82a8-8e3427a0fa1f",
+      "description": ""
+    }
+  ],
+  "values": [
+    {
+      "id": 2,
       "value": 100,
       "isExpense": true
     },
     {
       "id": 3,
-      "description": "",
       "value": 150,
       "isExpense": true
     },
     {
       "id": 5,
-      "description": "",
       "value": 500,
       "isExpense": false
     },
     {
       "id": 113,
-      "description": "income",
       "value": 1650,
+      "isExpense": false
+    },
+    {
+      "id": "7b04b310-7ccd-4e53-bdf6-f43c0b27c7c0",
+      "value": "165",
+      "isExpense": true
+    },
+    {
+      "id": "106aa998-f0be-4533-9efb-454a5b38094e",
+      "value": "16/5",
+      "isExpense": false
+    },
+    {
+      "id": "9df6f441-34cf-412a-a639-9009e9949f2d",
+      "value": "232",
+      "isExpense": true
+    },
+    {
+      "id": "37da48cd-e3a0-4a54-a3b8-0d3397a041df",
+      "value": "2112",
+      "isExpense": true
+    },
+    {
+      "id": "ecc6ddd5-4fd5-4989-82a8-8e3427a0fa1f",
+      "value": "",
       "isExpense": false
     }
   ]

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Modal } from 'semantic-ui-react';
 import { useDispatch } from 'react-redux';
 import NewForm from './NewForm';
 import { closeEditModel } from '../actions/models.action'
 import useEntryDetails from '../hooks/useEntryDetails'
+import newContext,{NewTheme} from '../context';
 function ModelEdit({ isOpen, description, value, isExpense, id }) {
+    const cont = NewTheme();
     const dispatchAction = useDispatch();
     const entryUpdate = useEntryDetails(description, value, isExpense);
     return <Modal open={isOpen} closeIcon onClose={() => dispatchAction(closeEditModel())}>
@@ -21,7 +23,7 @@ function ModelEdit({ isOpen, description, value, isExpense, id }) {
             />
         </Modal.Content>
         <Modal.Actions>
-            <Button onClick={() => {
+            <Button color={cont.editCloseBtnColor}  onClick={() => {
                 dispatchAction(closeEditModel())
             }}>Close</Button>
             <Button primary onClick={() => {
@@ -30,5 +32,6 @@ function ModelEdit({ isOpen, description, value, isExpense, id }) {
         </Modal.Actions>
     </Modal >
 }
+
 
 export default ModelEdit;
