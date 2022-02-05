@@ -23,7 +23,8 @@ function App() {
     dispatcher(getAllEntries());
     dispatcher(getAllEntries());
   }, [dispatcher]);
-  const ChangeThemeHandler = () => {
+  const ChangeThemeHandler = (val) => {
+    console.log(val);
     setTheme((theme === themes.light) ? themes.dark : themes.light);
   }
   return (

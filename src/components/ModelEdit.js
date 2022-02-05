@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Button, Modal } from 'semantic-ui-react';
 import { useDispatch } from 'react-redux';
 import NewForm from './NewForm';
 import { closeEditModel } from '../actions/models.action'
 import useEntryDetails from '../hooks/useEntryDetails'
-import newContext,{NewTheme} from '../context';
+import {NewTheme} from '../context';
 function ModelEdit({ isOpen, description, value, isExpense, id }) {
     const cont = NewTheme();
     const dispatchAction = useDispatch();
